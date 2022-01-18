@@ -91,7 +91,6 @@ public class PostsApiControllerTest {
                  .build(); //수정 dto
 
          String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
-
          HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto); //리퀘스트 규약형식으로
 
          //when - 리퀘스트
@@ -103,9 +102,6 @@ public class PostsApiControllerTest {
          List<Posts> all = postsRepository.findAll();
          assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
          assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
-
-
-
 
      }
 }

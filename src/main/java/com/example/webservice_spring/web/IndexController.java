@@ -1,5 +1,6 @@
 package com.example.webservice_spring.web;
 
+import com.example.webservice_spring.config.auth.LoginUser;
 import com.example.webservice_spring.config.auth.dto.SessionUser;
 import com.example.webservice_spring.domain.posts.PostsRepository;
 import com.example.webservice_spring.service.posts.PostsService;
@@ -20,11 +21,11 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model)
+    public String index(Model model, @LoginUser SessionUser user)
     {
         //뷰에게 전달할 모델
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        //SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user!=null)
         {
             model.addAttribute("userName", user.getName());

@@ -50,6 +50,8 @@ deploy:
     deployment_group: springboot-webservice-grup # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
+    on:
+      all_branches: true
 
 notifications:
   email:
